@@ -21,7 +21,7 @@ class Queue:
     
     def __len__(self):
         s = self.size
-        print(f"Size: {s}")
+        # print(f"Size: {s}")
         return s
 
     def enqueue(self, value):
