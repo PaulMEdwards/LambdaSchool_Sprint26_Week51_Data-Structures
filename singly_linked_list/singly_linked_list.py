@@ -20,6 +20,9 @@ class LinkedList:
         self.head = None
         self.tail = None
         self.length = 0
+
+    def __len__(self):
+        return self.length
     
     def add_to_head(self, value):
         new_node = Node(value, self.head)
