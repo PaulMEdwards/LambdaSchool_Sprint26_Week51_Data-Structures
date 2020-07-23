@@ -68,12 +68,16 @@ class LinkedList:
     def remove_tail(self):
         prev_node = None
         cur_node = self.head
-        while cur_node is not None:
+        while cur_node.next_node is not None:
             prev_node = cur_node
             cur_node = cur_node.next_node
-        prev_node.set_next(None)
+        if prev_node is not None:
+            prev_node.set_next(None)
+        value = cur_node.get_value()
         cur_node = None
         self.tail = prev_node
+        self.length -= 1
+        return value
 
     def contains(self, value):
         # print('contains: start', value)
