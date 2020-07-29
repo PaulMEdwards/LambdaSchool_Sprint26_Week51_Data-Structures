@@ -40,7 +40,7 @@ class BSTNode:
         if value == self.value:
             self.count += 1
             # print(f"incremented count for value:\t{self.value} ({self.count})")
-        elif value <= self.value:
+        elif value < self.value:
             if self.left is None:
                 self.left = BSTNode(value)
             else:
