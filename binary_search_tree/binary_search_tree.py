@@ -92,7 +92,11 @@ class BSTNode:
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        n = self
+        # print(f"v: {n.value}\nl: {n.left}\nr: {n.right}\n")
+        fn(n.value)
+        if n.left is not None: n.left.for_each(fn)
+        if n.right is not None: n.right.for_each(fn)
 
     # STRETCH
     def delete(self, value):
