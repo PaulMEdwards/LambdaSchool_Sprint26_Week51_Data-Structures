@@ -21,7 +21,7 @@ class DoublyLinkedList:
     def __len__(self):
         return self.length
 
-    def printAllValues(self, label):
+    def printAllValues(self, label = None):
         if label: print(label)
         n = self.head
         i = 0
