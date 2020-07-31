@@ -160,6 +160,9 @@ class BSTNode:
     def pre_order_dft(self):
         pass
 
+    def in_order_dft(self):
+        self.in_order_print()
+
     # Print Post-order recursive DFT
     def post_order_dft(self):
         pass
