@@ -52,16 +52,9 @@ class BSTNode:
                 self.right.insert(value)
         # printValues(self, f"inserted:\t{value}")
 
-    # Return True if the tree contains the value
-    # False if it does not
-    def contains(self, target):
-        # compare target_value to cur_value
-            # 1. == return True
-            # 2. < go left
-            # 3. > go right
-            # 4. not found, return False
+    # used in contains & delete
+    def find(self, target):
         result = False
-        ripCord = False
         n = self
         while result != True and n is not None:
             if target == n.value: result = True
@@ -77,6 +70,20 @@ class BSTNode:
                     n = None
             else:
                 n = None
+        # printValues(self, f"find {target}?\t{result}")
+        return n
+
+    # Return True if the tree contains the value
+    # False if it does not
+    def contains(self, target):
+        # compare target_value to cur_value
+            # 1. == return True
+            # 2. < go left
+            # 3. > go right
+            # 4. not found, return False
+        result = False
+        n = self.find(target)
+        if n is not None: result = True
         # printValues(self, f"contains {target}?\t{result}")
         return result
 
