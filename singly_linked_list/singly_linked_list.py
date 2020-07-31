@@ -23,7 +23,14 @@ class LinkedList:
 
     def __len__(self):
         return self.length
-    
+
+    def printAll(self, label = None):
+        if label: print(label)
+        n = self.head
+        while n:
+            print(f"\t{n.get_value()}\t{n}")
+            n = n.get_next()
+
     def add_to_head(self, value):
         new_node = Node(value, self.head)
         self.head = new_node
@@ -32,26 +39,31 @@ class LinkedList:
         self.length += 1
 
     def add_to_tail(self, value):
-        # print('add_to_tail: start')
         new_node = Node(value)
+        # print('add_to_tail: start')
+        # self.printAll("before values")
         # vH = self.head.get_value() if self.head is not None else None
         # vT = self.tail.get_value() if self.tail is not None else None
-        # print('head', self.head, vH)
-        # print('tail', self.tail, vT)
-        # print(' len', self.length)
-        # print(' new', new_node, new_node.get_value())
+        # print(f"head\t{vH}\t{self.head}")
+        # print(f"tail\t{vT}\t{self.tail}")
+        # print(f" new\t{new_node.get_value()}\t{new_node}")
+        # print(f" len\t{self.length}")
         if self.head is None and self.tail is None:
+            # print('new')
             self.head = new_node
-        else:
+        elif self.tail is not None:
+            # print('not new')
             self.tail.set_next(new_node)
         self.tail = new_node
         self.length += 1
-        vH = self.head.get_value() if self.head is not None else None
-        vT = self.tail.get_value() if self.tail is not None else None
-        # print('head', self.head, vH)
-        # print('tail', self.tail, vT)
-        # print(' len', self.length)
-        # print('add_to_tail: end')
+        # vH = self.head.get_value() if self.head is not None else None
+        # vT = self.tail.get_value() if self.tail is not None else None
+        # print(f"head\t{vH}\t{self.head}")
+        # print(f"tail\t{vT}\t{self.tail}")
+        # print(f" new\t{new_node}\t{new_node.get_value()}")
+        # print(f" len\t{self.length}")
+        # self.printAll("after values")
+        # print('add_to_tail: end\n')
 
     def remove_head(self):
         if self.head is None:

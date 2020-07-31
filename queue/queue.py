@@ -23,6 +23,7 @@ if str(pathlib.Path.cwd()).endswith(cur_dir):
     sys.path.insert(0, str(pathlib.Path.cwd().parent))
 if str(sys.path[0]).endswith(cur_dir):
     sys.path.insert(0, str(pathlib.Path.cwd()))
+sys.path.insert(0, str(pathlib.Path.cwd().parent))
 
 try: from singly_linked_list.singly_linked_list import LinkedList
 except ModuleNotFoundError: pass
