@@ -135,7 +135,23 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
-        pass
+        # Left, Root, Right
+        n = self
+        # self.s.push(n)
+        # print(f"len: {len(self.s)}")
+        # while len(self.s) > 0:
+        #     n = self.s.pop()
+        #     if n.right is not None: self.s.push(n.right)
+        #     print(n.value)
+        #     if n.left is not None: self.s.push(n.left)
+        #     print(f"len: {len(self.s)}")
+        stack = []
+        stack.append(n)
+        while len(stack) > 0:
+            n = stack.pop()
+            print(n.value)
+            if n.right is not None: stack.append(n.right)
+            if n.left is not None: stack.append(n.left)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
