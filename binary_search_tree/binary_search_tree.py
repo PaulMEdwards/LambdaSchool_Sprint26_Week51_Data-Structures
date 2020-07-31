@@ -10,6 +10,59 @@ This part of the project comprises two days:
    on the BSTNode class.
 """
 
+cur_dir = 'binary_search_tree'
+import sys, pathlib
+c = pathlib.Path.cwd()
+# if str(c).endswith(cur_dir):
+#     sys.path.insert(0, str(c.parent))
+if str(sys.path[0]).endswith(cur_dir):
+    sys.path.insert(0, str(c.parent))
+# sys.path.insert(1, str(c.parent / 'queue'))
+
+# print(sys.path)
+
+try: from singly_linked_list import LinkedList
+except ModuleNotFoundError: pass
+except ImportError: pass
+try: from singly_linked_list.singly_linked_list import LinkedList
+except ModuleNotFoundError: pass
+except ImportError: pass
+
+# try: from queue import Queue
+# except ModuleNotFoundError: pass
+# except ImportError: pass
+# try: from queue.queue import Queue
+# except ModuleNotFoundError: pass
+# except ImportError: pass
+
+# from singly_linked_list.singly_linked_list import LinkedList
+# import Queue
+
+class Queue:
+    def __init__(self):
+        self.storage = LinkedList()
+    def __len__(self):
+        s = self.storage.length
+        return s
+    def enqueue(self, value):
+        self.storage.add_to_tail(value)
+    def dequeue(self):
+        if self.storage.length == 0: return None
+        v = self.storage.head.get_value()
+        self.storage.remove_head()
+        return v
+
+class Stack:
+    def __init__(self):
+        self.storage = LinkedList()
+    def __len__(self):
+        return self.storage.length
+    def push(self, value):
+        self.storage.add_to_tail(value)
+    def pop(self):
+        if self.storage.length == 0: return None
+        return self.storage.remove_tail()
+
 DEPTH = [10]
 
 def printUtil(node, gap):
@@ -34,6 +87,8 @@ class BSTNode:
         self.left = None
         self.right = None
         self.count = 1
+        self.q = Queue()
+        self.s = Stack()
 
     # Insert the given value into the tree
     def insert(self, value):
